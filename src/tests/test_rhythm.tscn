@@ -14,12 +14,24 @@ const beats_per_measure := 4
 var sec_per_beat := 60.0/bpm
 var last_time := 0.0
 
+var input_audio_offset : float
+
+# Seconds around the note where a user_played will count as a hit.
+const hit_window := 0.1
+
+signal user_played(at: float)
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print(sec_per_beat)
+	await get_tree().create_timer(1).timeout
+	var t0 := Time.get_ticks_usec() / 1_000_000.0
+	$AudioStreamPlayer.play()
+	input_audio_offset = t0 + AudioServer.get_time_to_next_mix() + AudioServer.get_output_latency()
+	print(\"input audio offset \", input_audio_offset)
+	print(sec_per_beat, \"sec per beat\")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame. TODO does that matter?
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if $AudioStreamPlayer.playing:
 		var time1: float = $AudioStreamPlayer.get_playback_position()
 		var time2: float = time1 + AudioServer.get_time_since_last_mix()
@@ -35,6 +47,28 @@ func _process(delta: float) -> void:
 			var beat_in_measure := 1 + beat_number % beats_per_measure
 			
 			$Label.text = \"raw pos {0}\\nlast mix {1}\\ndriverlat {2}\\nbeat number {3}\\nmeasure {4}\\nbeat in measure {5}\".format([time1, time2, time3, beat_number+1, measure_number, beat_in_measure])
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.pressed:
+			var now_sec := Time.get_ticks_usec() / 1_000_000.0
+			user_played.emit(now_sec)
+
+
+func _on_user_played(at: float) -> void:
+	var notes := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 13.5, 14, 14.5, 15, 15.5, 16, 16.5]
+	var hit := false
+	for note in notes:
+		# Get the actual time the note was meant to be played
+		var note_time: float = (note - 1) * sec_per_beat + input_audio_offset
+		var lo := note_time - hit_window
+		var hi := note_time + hit_window
+		if at >= lo and at <= hi:
+			hit = true
+			$HitLabel.text = \"hit note {0} ({1} <= {2} <= {3})\".format([note, lo, at, hi])
+		
+	if not hit:
+		$HitLabel.text = \"miss\"
 "
 
 [node name="Node2D" type="Node2D" unique_id=1341507688]
@@ -42,8 +76,23 @@ script = SubResource("GDScript_gnqug")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1852271417]
 stream = ExtResource("1_gnqug")
-autoplay = true
 
 [node name="Label" type="Label" parent="." unique_id=748526151]
 offset_right = 40.0
 offset_bottom = 23.0
+
+[node name="HitLabel" type="Label" parent="." unique_id=1520380002]
+offset_left = 124.0
+offset_top = 197.0
+offset_right = 643.0
+offset_bottom = 368.0
+
+[node name="Label2" type="Label" parent="." unique_id=1876076939]
+offset_left = 441.0
+offset_top = 15.0
+offset_right = 719.0
+offset_bottom = 86.0
+text = "0-3 quarter notes
+At measure 4, switch to eighths"
+
+[connection signal="user_played" from="." to="." method="_on_user_played"]
