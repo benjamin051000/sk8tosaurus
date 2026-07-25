@@ -1,24 +1,29 @@
-extends CharacterBody2D
+extends Area2D
 
-var jumping := false
+@export var jump_height: float = 130.0
+@export var rise_time: float = 0.1
+@export var hang_time: float = 0.25
+@export var fall_time: float = 0.1
 
-# Jump velocity function. Holds a velocity curve that you sample.
-@export var jump_velocity: Curve
-# Time t into the jump. Used as input to the jump_curve
-var jump_t : float
+var tween: Tween
 
-func _physics_process(delta: float) -> void:
+func jump() -> void:
+	if tween and tween.is_running():
+		return  # already jumping, ignore
+
+	var ground_y := position.y
+	
+	tween = create_tween()
+	
+	tween.tween_property(self, "position:y", ground_y - jump_height, rise_time) \
+		.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	
+	tween.tween_interval(hang_time)
+	
+	tween.tween_property(self, "position:y", ground_y, fall_time) \
+		.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+
+
+func _physics_process(_delta: float) -> void:
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		print("click")
-		jumping = true
-		jump_t = 0
-	
-	if jumping:
-		print('jumping')
-		jump_t += delta
-		if jump_t > jump_velocity.max_domain:
-			jumping = false
-		else:
-			velocity.y = -jump_velocity.sample(jump_t) * 10
-	
-	move_and_slide()
+		jump()

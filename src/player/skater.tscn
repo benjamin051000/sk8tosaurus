@@ -6,12 +6,14 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_liimr"]
 size = Vector2(932, 937)
 
-[node name="Skater" type="CharacterBody2D" unique_id=652912601]
+[node name="Skater" type="Area2D" unique_id=445206836]
 script = ExtResource("2_dqm51")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1517786593]
+scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_5i56v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2102296699]
-position = Vector2(-17, 41.5)
+position = Vector2(-3, 12)
+scale = Vector2(0.25, 0.25)
 shape = SubResource("RectangleShape2D_liimr")
