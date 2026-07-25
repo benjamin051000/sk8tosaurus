@@ -2,6 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://dkenox6dl3bwc" path="res://assets/skater/skater.png" id="1_5i56v"]
 [ext_resource type="Script" uid="uid://clmla4mx6wdkp" path="res://src/player/skater.gd" id="2_dqm51"]
+[ext_resource type="AudioStream" uid="uid://bu4tui1ql1f38" path="res://assets/audio/sfx/skatosaurus_sfx_skateboarddefault.wav" id="3_3sh08"]
+[ext_resource type="AudioStream" uid="uid://dtl20336adnfp" path="res://assets/audio/sfx/skatosaurus_sfx_skateboardpush_v1.wav" id="4_eyihj"]
+[ext_resource type="AudioStream" uid="uid://cbus8ty8e6kee" path="res://assets/audio/sfx/skatosaurus_sfx_skateboardpush_v2.wav" id="5_eyy0h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_liimr"]
 size = Vector2(932, 937)
@@ -18,3 +21,18 @@ visible = false
 position = Vector2(-3, 12)
 scale = Vector2(0.25, 0.25)
 shape = SubResource("RectangleShape2D_liimr")
+
+[node name="SkateSound" type="AudioStreamPlayer" parent="." unique_id=1921531883]
+stream = ExtResource("3_3sh08")
+autoplay = true
+
+[node name="PushSoundTimer" type="Timer" parent="." unique_id=1305924505]
+autostart = true
+
+[node name="Push1" type="AudioStreamPlayer" parent="." unique_id=256987206]
+stream = ExtResource("4_eyihj")
+
+[node name="Push2" type="AudioStreamPlayer" parent="." unique_id=1934237444]
+stream = ExtResource("5_eyy0h")
+
+[connection signal="timeout" from="PushSoundTimer" to="." method="_on_push_sound_timer_timeout"]
