@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://clmla4mx6wdkp" path="res://src/player/skater.gd" id="2_dqm51"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_liimr"]
-size = Vector2(212, 256)
+size = Vector2(932, 937)
 
 [node name="Skater" type="CharacterBody2D" unique_id=652912601]
 script = ExtResource("2_dqm51")
@@ -13,4 +13,5 @@ script = ExtResource("2_dqm51")
 texture = ExtResource("1_5i56v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2102296699]
+position = Vector2(-17, 41.5)
 shape = SubResource("RectangleShape2D_liimr")
