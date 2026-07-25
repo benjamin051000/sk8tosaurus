@@ -1,58 +1,11 @@
 [gd_scene format=3 uid="uid://blky1c5evmb3y"]
 
 [ext_resource type="PackedScene" uid="uid://bdqd4s4j7qvub" path="res://src/player/skater.tscn" id="1_m7qrp"]
-[ext_resource type="Curve" uid="uid://ddrhu6hs78gop" path="res://src/player/jump_velocity.tres" id="2_ivit3"]
-[ext_resource type="Texture2D" uid="uid://b7r0qk5akoliw" path="res://icon.svg" id="2_uid1o"]
+[ext_resource type="PackedScene" uid="uid://dugjc1d6qfaij" path="res://src/levels/flat_level.tscn" id="2_m7qrp"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_liimr"]
-size = Vector2(1028, 65)
-
-[sub_resource type="GDScript" id="GDScript_uid1o"]
-script/source = "extends AnimatableBody2D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	#velocity.x = -400
-	#move_and_slide()
-	pass
-"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uid1o"]
-size = Vector2(69, 60.5)
-
-[node name="Node2D" type="Node2D" unique_id=942925074]
+[node name="TestLevel" type="Node2D" unique_id=942925074]
 
 [node name="Skater" parent="." unique_id=652912601 instance=ExtResource("1_m7qrp")]
-position = Vector2(405, 464)
-jump_velocity = ExtResource("2_ivit3")
+position = Vector2(377, 462)
 
-[node name="Ground" type="RigidBody2D" parent="." unique_id=6123590]
-position = Vector2(627, 627)
-freeze = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=814918091]
-position = Vector2(0, -0.5)
-shape = SubResource("RectangleShape2D_liimr")
-
-[node name="Sprite2D" type="Sprite2D" parent="Ground" unique_id=1123623162]
-scale = Vector2(8, 0.5)
-texture = ExtResource("2_uid1o")
-
-[node name="Obstacle" type="AnimatableBody2D" parent="." unique_id=1371365355]
-position = Vector2(627, 627)
-script = SubResource("GDScript_uid1o")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle" unique_id=549408816]
-position = Vector2(460.50012, -66.75)
-shape = SubResource("RectangleShape2D_uid1o")
-
-[node name="Sprite2D" type="Sprite2D" parent="Obstacle" unique_id=1369750333]
-position = Vector2(460.50006, -66.75)
-scale = Vector2(0.5234378, 0.4570312)
-texture = ExtResource("2_uid1o")
+[node name="FlatLevel" parent="." unique_id=1702081690 instance=ExtResource("2_m7qrp")]
