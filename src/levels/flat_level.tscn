@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dugjc1d6qfaij"]
+
+[ext_resource type="Script" uid="uid://133sesfu3sow" path="res://src/levels/flat_level.gd" id="1_skqju"]
+[ext_resource type="Texture2D" uid="uid://oaju4c8kulw6" path="res://assets/ground/Ground_high.png" id="2_w440s"]
+
+[node name="FlatLevel" type="Node2D" unique_id=1702081690]
+script = ExtResource("1_skqju")
+
+[node name="GroundA" type="Sprite2D" parent="." unique_id=906395677]
+position = Vector2(0, 300)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_w440s")
+centered = false
+
+[node name="GroundB" type="Sprite2D" parent="." unique_id=475952142]
+position = Vector2(1920, 300)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_w440s")
+centered = false
