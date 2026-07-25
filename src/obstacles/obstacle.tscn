@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://13arfr00njx4"]
+
+[ext_resource type="Script" uid="uid://uk1n41cfkxg0" path="res://src/obstacles/obstacle.gd" id="1_1dfmg"]
+[ext_resource type="Texture2D" uid="uid://b7r0qk5akoliw" path="res://icon.svg" id="1_orxak"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_liimr"]
+size = Vector2(128, 128)
+
+[node name="Obstacle" type="Node2D" unique_id=1866264490]
+script = ExtResource("1_1dfmg")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1319449729]
+modulate = Color(1, 0.38039216, 0.38039216, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_orxak")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D" unique_id=1506768031]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D" unique_id=435369340]
+visible = false
+shape = SubResource("RectangleShape2D_liimr")
+
+[node name="Countdown" type="Label" parent="." unique_id=1438333299]
+offset_left = -27.0
+offset_top = -100.0
+offset_right = 28.0
+offset_bottom = -33.0
+theme_override_font_sizes/font_size = 48
+text = "3"
+horizontal_alignment = 1

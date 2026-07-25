@@ -21,7 +21,8 @@ ground_path = NodePath("../FlatLevel")
 [node name="FlatLevel" parent="." unique_id=1702081690 instance=ExtResource("2_m7qrp")]
 
 [node name="Obstacle" parent="." unique_id=1866264490 instance=ExtResource("3_uid1o")]
-position = Vector2(1522, 693)
+position = Vector2(1164, 656)
+ground_path = NodePath("../FlatLevel")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1280873403]
 stream = ExtResource("5_q0u4l")
