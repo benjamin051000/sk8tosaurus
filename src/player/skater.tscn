@@ -24,6 +24,7 @@ shape = SubResource("RectangleShape2D_liimr")
 
 [node name="SkateSound" type="AudioStreamPlayer" parent="." unique_id=1921531883]
 stream = ExtResource("3_3sh08")
+volume_db = -10.0
 autoplay = true
 
 [node name="PushSoundTimer" type="Timer" parent="." unique_id=1305924505]
@@ -31,8 +32,10 @@ autostart = true
 
 [node name="Push1" type="AudioStreamPlayer" parent="." unique_id=256987206]
 stream = ExtResource("4_eyihj")
+volume_db = -5.0
 
 [node name="Push2" type="AudioStreamPlayer" parent="." unique_id=1934237444]
 stream = ExtResource("5_eyy0h")
+volume_db = -5.0
 
 [connection signal="timeout" from="PushSoundTimer" to="." method="_on_push_sound_timer_timeout"]
