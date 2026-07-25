@@ -1,11 +1,23 @@
 [gd_scene format=3 uid="uid://blky1c5evmb3y"]
 
+[ext_resource type="Script" uid="uid://c0ddf37026hes" path="res://src/tests/test_level.gd" id="1_ivit3"]
 [ext_resource type="PackedScene" uid="uid://bdqd4s4j7qvub" path="res://src/player/skater.tscn" id="1_m7qrp"]
 [ext_resource type="PackedScene" uid="uid://dugjc1d6qfaij" path="res://src/levels/flat_level.tscn" id="2_m7qrp"]
+[ext_resource type="PackedScene" uid="uid://13arfr00njx4" path="res://src/obstacles/obstacle.tscn" id="3_uid1o"]
+[ext_resource type="AudioStream" uid="uid://bra5hkrpb0dva" path="res://assets/audio/music/Sk8tosaurus.wav" id="5_q0u4l"]
 
 [node name="TestLevel" type="Node2D" unique_id=942925074]
+script = ExtResource("1_ivit3")
 
 [node name="Skater" parent="." unique_id=652912601 instance=ExtResource("1_m7qrp")]
-position = Vector2(377, 462)
+position = Vector2(397, 586)
+ground_path = NodePath("../FlatLevel")
 
 [node name="FlatLevel" parent="." unique_id=1702081690 instance=ExtResource("2_m7qrp")]
+
+[node name="Obstacle" parent="." unique_id=1866264490 instance=ExtResource("3_uid1o")]
+position = Vector2(1522, 693)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1280873403]
+stream = ExtResource("5_q0u4l")
+autoplay = true

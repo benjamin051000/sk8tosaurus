@@ -3,6 +3,12 @@
 [ext_resource type="Script" uid="uid://133sesfu3sow" path="res://src/levels/flat_level.gd" id="1_skqju"]
 [ext_resource type="Texture2D" uid="uid://oaju4c8kulw6" path="res://assets/ground/Ground_high.png" id="2_w440s"]
 
+[sub_resource type="Curve2D" id="Curve2D_qayko"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 850, 0, 0, 0, 0, 168, 844, 0, 0, 0, 0, 458, 860, 0, 0, 0, 0, 782, 838, 0, 0, 0, 0, 1046, 860, 0, 0, 0, 0, 1276, 852, 0, 0, 0, 0, 1368, 858, 0, 0, 0, 0, 1438, 852, 0, 0, 0, 0, 1554, 862, 0, 0, 0, 0, 1694, 844, 0, 0, 0, 0, 2018, 858, 0, 0, 0, 0, 2110, 874, 0, 0, 0, 0, 2310, 848, 0, 0, 0, 0, 2468, 854, 0, 0, 0, 0, 2696, 860, 0, 0, 0, 0, 2902, 852, 0, 0, 0, 0, 3100, 854, 0, 0, 0, 0, 3248, 866, 0, 0, 0, 0, 3468, 858, 0, 0, 0, 0, 3648, 862, 0, 0, 0, 0, 3840, 850)
+}
+point_count = 21
+
 [node name="FlatLevel" type="Node2D" unique_id=1702081690]
 script = ExtResource("1_skqju")
 
@@ -12,8 +18,14 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_w440s")
 centered = false
 
+[node name="Top" type="Path2D" parent="GroundA" unique_id=1174188881]
+curve = SubResource("Curve2D_qayko")
+
 [node name="GroundB" type="Sprite2D" parent="." unique_id=475952142]
 position = Vector2(1920, 300)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_w440s")
 centered = false
+
+[node name="Top" type="Path2D" parent="GroundB" unique_id=68995147]
+curve = SubResource("Curve2D_qayko")

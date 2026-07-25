@@ -5,8 +5,25 @@ extends Area2D
 @export var hang_time: float = 0.25
 @export var fall_time: float = 0.1
 
+@export var ground_path: NodePath
+var ground: Node2D
+
+## Manually measured, since the sprite texture is not cropped and the
+## bottom has a little transparent border.
+const feet_y_offset := 128.0
+
 var tween: Tween
 var jumping := false
+
+func _ready() -> void:
+	ground = get_node(ground_path)
+	
+func _process(_delta: float) -> void:
+	if not jumping:
+		var ground_y = ground.get_ground_height(position.x)
+		position.y = ground_y - feet_y_offset
+		# TODO the lerp smooths it out too much
+		#position.y = lerp(position.y, ground_y - feet_y_offset, _delta * 0.99)
 
 func jump() -> void:
 	jumping = true
@@ -29,12 +46,13 @@ func jump() -> void:
 	tween.tween_property(self, "position:y", ground_y, fall_time) \
 		.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
 	tween.tween_callback($SkateSound.play)
-	tween.tween_callback(func(): $PushSoundTimer.paused = false)
+	tween.tween_callback(func(): $PushSoundTimer.paused = false; jumping = false)
 
 
 func _physics_process(_delta: float) -> void:
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		jump()
+
 
 func _on_push_sound_timer_timeout() -> void:
 	var sounds = [$Push1, $Push2]
