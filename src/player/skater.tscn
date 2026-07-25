@@ -7,19 +7,17 @@
 [ext_resource type="AudioStream" uid="uid://cbus8ty8e6kee" path="res://assets/audio/sfx/skatosaurus_sfx_skateboardpush_v2.wav" id="5_eyy0h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_liimr"]
-size = Vector2(932, 937)
+size = Vector2(938, 980.5)
 
 [node name="Skater" type="Area2D" unique_id=445206836]
+scale = Vector2(0.25, 0.25)
 script = ExtResource("2_dqm51")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1517786593]
-scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_5i56v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2102296699]
-visible = false
-position = Vector2(-3, 12)
-scale = Vector2(0.25, 0.25)
+position = Vector2(-11, 21.75)
 shape = SubResource("RectangleShape2D_liimr")
 
 [node name="SkateSound" type="AudioStreamPlayer" parent="." unique_id=1921531883]
