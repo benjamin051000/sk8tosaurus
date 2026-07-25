@@ -5,6 +5,12 @@
 [ext_resource type="AudioStream" uid="uid://bu4tui1ql1f38" path="res://assets/audio/sfx/skatosaurus_sfx_skateboarddefault.wav" id="3_3sh08"]
 [ext_resource type="AudioStream" uid="uid://dtl20336adnfp" path="res://assets/audio/sfx/skatosaurus_sfx_skateboardpush_v1.wav" id="4_eyihj"]
 [ext_resource type="AudioStream" uid="uid://cbus8ty8e6kee" path="res://assets/audio/sfx/skatosaurus_sfx_skateboardpush_v2.wav" id="5_eyy0h"]
+[ext_resource type="AudioStream" uid="uid://hk13lqkkpqx2" path="res://assets/audio/sfx/skatosaurus_skateboardjump.wav" id="6_eyy0h"]
+[ext_resource type="AudioStream" uid="uid://y2xht0tpkl73" path="res://assets/audio/sfx/skatosaurus_skateboardland_v1.wav" id="7_4bmer"]
+[ext_resource type="AudioStream" uid="uid://mpaq5otlk10p" path="res://assets/audio/sfx/skatosaurus_skateboardland_v2.wav" id="8_bfuli"]
+[ext_resource type="AudioStream" uid="uid://cbf6f5odlpk10" path="res://assets/audio/sfx/skatosaurus_skateboardland_v3.wav" id="9_sryvi"]
+[ext_resource type="AudioStream" uid="uid://d05i4did88478" path="res://assets/audio/sfx/skatosaurus_skateboardland_v4.wav" id="10_8iwcx"]
+[ext_resource type="AudioStream" uid="uid://bpvuj7p2owfmk" path="res://assets/audio/sfx/skatosaurus_skateboardland_v5.wav" id="11_mgb6c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_liimr"]
 size = Vector2(938, 980.5)
@@ -35,5 +41,24 @@ volume_db = -5.0
 [node name="Push2" type="AudioStreamPlayer" parent="." unique_id=1934237444]
 stream = ExtResource("5_eyy0h")
 volume_db = -5.0
+
+[node name="JumpSound" type="AudioStreamPlayer" parent="." unique_id=418604129]
+stream = ExtResource("6_eyy0h")
+volume_db = -10.0
+
+[node name="LandSound1" type="AudioStreamPlayer" parent="." unique_id=850654792]
+stream = ExtResource("7_4bmer")
+
+[node name="LandSound2" type="AudioStreamPlayer" parent="." unique_id=1424362931]
+stream = ExtResource("8_bfuli")
+
+[node name="LandSound3" type="AudioStreamPlayer" parent="." unique_id=552220684]
+stream = ExtResource("9_sryvi")
+
+[node name="LandSound4" type="AudioStreamPlayer" parent="." unique_id=1111009179]
+stream = ExtResource("10_8iwcx")
+
+[node name="LandSound5" type="AudioStreamPlayer" parent="." unique_id=1332795966]
+stream = ExtResource("11_mgb6c")
 
 [connection signal="timeout" from="PushSoundTimer" to="." method="_on_push_sound_timer_timeout"]

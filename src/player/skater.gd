@@ -34,6 +34,7 @@ func jump() -> void:
 	$Push1.stop()
 	$Push2.stop()
 	$PushSoundTimer.paused = true
+	$JumpSound.play()
 	var ground_y := position.y
 	
 	tween = create_tween()
@@ -45,6 +46,7 @@ func jump() -> void:
 	
 	tween.tween_property(self, "position:y", ground_y, fall_time) \
 		.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+	tween.tween_callback(play_random_land_sound)
 	tween.tween_callback($SkateSound.play)
 	tween.tween_callback(func(): $PushSoundTimer.paused = false; jumping = false)
 
@@ -53,6 +55,9 @@ func _physics_process(_delta: float) -> void:
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		jump()
 
+func play_random_land_sound() -> void:
+	var sounds = [$LandSound1, $LandSound2, $LandSound3, $LandSound4, $LandSound5]
+	sounds.pick_random().play()
 
 func _on_push_sound_timer_timeout() -> void:
 	var sounds = [$Push1, $Push2]
