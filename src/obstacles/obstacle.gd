@@ -29,7 +29,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	position.x += speed * delta
 	
-	if position.x >= 0 and position.x <= 1920 + $Sprite2D.texture.get_width():
+	if position.x >= 0 and position.x <= 1920 + $Sprite2D.texture.get_width() / 2:
 		var ground_y = ground.get_ground_height(position.x)
 		position.y = ground_y - 32  # offset
 	

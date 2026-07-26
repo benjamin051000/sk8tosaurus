@@ -98,6 +98,6 @@ theme_override_font_sizes/font_size = 128
 [node name="Skateboard" type="AnimatedSprite2D" parent="." unique_id=1470259876]
 position = Vector2(0, 504)
 sprite_frames = SubResource("SpriteFrames_liimr")
-frame_progress = 0.6883699
+frame_progress = 0.12523168
 
 [connection signal="timeout" from="PushSoundTimer" to="." method="_on_push_sound_timer_timeout"]

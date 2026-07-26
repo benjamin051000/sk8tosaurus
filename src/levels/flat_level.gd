@@ -19,8 +19,13 @@ func get_ground_height(at: float) -> float:
 	elif b_interval.contains(at):
 		sprite = b
 	else:
-		print("{0} was not inside either a or b sprite. Something is seriously wrong!", [at])
-		get_tree().quit(1)
+		#print("{0} was not inside either a or b sprite. Something is seriously wrong!", [at])
+		#get_tree().quit(1)
+		# HACK
+		return 690.0
+	# HACK
+	if not sprite:
+		return 690.0
 	var top: Path2D = sprite.get_node("Top")
 	var local := top.to_local(Vector2(at, 0))
 	var local_closest := top.curve.get_closest_point(local)

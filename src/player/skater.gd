@@ -21,12 +21,18 @@ const front_x_offset := 115.0
 
 var tween: Tween
 var jumping := false
+var dead := false
 
 func got_hit() -> void:
+	if dead:
+		return
 	health -= 1
 	$HealthLabel.text = health_to_str()
 	if health == 0:
 		Utils.game_over.emit()
+		$Sprite2D.queue_free()
+		$HealthLabel.queue_free()
+		dead = true
 
 func _ready() -> void:
 	ground = get_node(ground_path)

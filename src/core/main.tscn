@@ -17,6 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://b3ey5bnh3lygg" path="res://assets/audio/sfx/skatosaurus_sfx_lose.wav" id="11_7o0du"]
 [ext_resource type="Texture2D" uid="uid://depaek5maqplx" path="res://assets/background/mountains/Background_3_4.png" id="11_72j70"]
 [ext_resource type="AudioStream" uid="uid://b4fwayjqxbsh1" path="res://assets/audio/sfx/skatosaurus_sfx_win.wav" id="12_7561f"]
+[ext_resource type="Texture2D" uid="uid://df4w7ekviuxh2" path="res://assets/background/Background_1_base.png" id="18_i7mjs"]
 
 [node name="Game" type="Node2D" unique_id=904023656]
 script = ExtResource("1_avv2o")
@@ -141,3 +142,22 @@ stream = ExtResource("11_7o0du")
 [node name="RoarSound" type="AudioStreamPlayer" parent="." unique_id=992457969]
 stream = ExtResource("12_7561f")
 volume_db = -1.0
+
+[node name="GameOver" type="Node2D" parent="." unique_id=1420096173]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="GameOver" unique_id=1582784649]
+position = Vector2(1041, -226.99998)
+scale = Vector2(0.63964844, 1.5902777)
+texture = ExtResource("18_i7mjs")
+
+[node name="Label" type="Label" parent="GameOver" unique_id=895996672]
+z_index = 5
+offset_left = 256.0
+offset_top = 337.0
+offset_right = 1600.0
+offset_bottom = 690.0
+theme_override_font_sizes/font_size = 128
+text = "Game over
+Thanks for playing!"
+horizontal_alignment = 1

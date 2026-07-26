@@ -28,22 +28,29 @@ func start() -> void:
 	spawn_obstacles()
 
 func game_over() -> void:
-	print("game over")
+	$GameOver.visible = true
 	$LoseSound.play(1.75)
 
-func spawn_obstacles() -> void:
-	var obstacle_scene := preload("res://src/obstacles/obstacle.tscn")
-	for i in range(4, 16+1):
-		var obs := obstacle_scene.instantiate()
-		obs.beats_away = i
-		obs.ground_path = level.get_path()
-		obs.skater_path = skater.get_path()
-		$Obstacles.add_child(obs)
+var obstacle_scene := preload("res://src/obstacles/obstacle.tscn")
+func _spawn(beats_away) -> void:
+	var obs := obstacle_scene.instantiate()
+	obs.beats_away = beats_away
+	obs.ground_path = level.get_path()
+	obs.skater_path = skater.get_path()
+	$Obstacles.add_child(obs)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-	#if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		#main_menu.queue_free()
+func spawn_obstacles() -> void:
+	# Intro, stops right at guitar intro
+	for i in range(4, 16+1, 2):
+		_spawn(i)
+
+	for i in range(17, 32):
+		_spawn(i)
+	
+	var notes := [32, 33, 35, 36, 37, 39, 40, 41, 43, 44, 45, 47]
+	for note in notes:
+		_spawn(note)
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey:
