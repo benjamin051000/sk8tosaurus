@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c7l84ykbu6cg6" path="res://assets/background/clouds/Cloud_04.png" id="4_2uitn"]
 [ext_resource type="Texture2D" uid="uid://d080pcj7h8sa5" path="res://assets/background/clouds/Cloud_03.png" id="5_nlf45"]
 [ext_resource type="Texture2D" uid="uid://c6tc7utymrw7n" path="res://assets/background/Sky.png" id="6_2in8s"]
+[ext_resource type="Script" uid="uid://jvkf6ob0oirb" path="res://src/world/mountains.gd" id="7_j6usb"]
 [ext_resource type="PackedScene" uid="uid://ck7hxahm271hy" path="res://src/ui/main_menu.tscn" id="7_nxx65"]
 [ext_resource type="Texture2D" uid="uid://qxy3j0hq2dd2" path="res://assets/background/mountains/Background_3_base.png" id="7_qgou3"]
 [ext_resource type="Texture2D" uid="uid://b33403mi2xurw" path="res://assets/background/mountains/Background_3_1.png" id="8_i7mjs"]
@@ -53,6 +54,7 @@ texture = ExtResource("4_2uitn")
 z_index = -2
 repeat_size = Vector2(1920, 0)
 autoscroll = Vector2(-400, 0)
+script = ExtResource("7_j6usb")
 
 [node name="Sprite2D" type="Sprite2D" parent="Mountains" unique_id=2134967312]
 scale = Vector2(0.5, 0.5)
@@ -98,15 +100,6 @@ scale = Vector2(0.30152577, 0.3094978)
 texture = ExtResource("4_2uitn")
 
 [node name="MainMenu" parent="." unique_id=282117982 instance=ExtResource("7_nxx65")]
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 335.0
-offset_top = 245.0
-offset_right = 1422.0
-offset_bottom = 798.0
-grow_horizontal = 1
-grow_vertical = 1
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=493758124]
 stream = ExtResource("9_nlf45")

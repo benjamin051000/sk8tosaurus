@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://13arfr00njx4"]
 
 [ext_resource type="Script" uid="uid://uk1n41cfkxg0" path="res://src/obstacles/obstacle.gd" id="1_1dfmg"]
-[ext_resource type="Texture2D" uid="uid://b7r0qk5akoliw" path="res://icon.svg" id="1_orxak"]
+[ext_resource type="Texture2D" uid="uid://cbvdrwisl45qw" path="res://assets/background/Obstacle_tall_1.png" id="2_1dfmg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_liimr"]
 size = Vector2(128, 128)
@@ -11,8 +11,10 @@ script = ExtResource("1_1dfmg")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1319449729]
 modulate = Color(1, 0.38039216, 0.38039216, 1)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_orxak")
+z_index = 1
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_1dfmg")
+offset = Vector2(0, 70)
 
 [node name="Area2D" type="Area2D" parent="Sprite2D" unique_id=1506768031]
 
