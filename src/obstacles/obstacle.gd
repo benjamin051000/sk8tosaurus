@@ -25,6 +25,7 @@ func _ready() -> void:
 	position.x = skater.front_x_offset + tiny_offset + secs_away * -speed + 32  # sprite offset
 	ground = get_node(ground_path)
 
+
 func _process(delta: float) -> void:
 	position.x += speed * delta
 	
@@ -34,3 +35,8 @@ func _process(delta: float) -> void:
 	
 	if position.x + $Sprite2D.texture.get_width() / 2 < 0:
 		queue_free()
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area == skater:
+		Utils.hit_you.emit()

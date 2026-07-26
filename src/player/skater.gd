@@ -1,9 +1,14 @@
 extends Area2D
 
-@export var jump_height: float = 130.0
+@export var jump_height: float = 100.0
 @export var rise_time: float = 0.1
-@export var hang_time: float = 0.25
+@export var hang_time: float = 0.20
 @export var fall_time: float = 0.1
+
+@export var health := 3
+
+func health_to_str() -> String:
+	return str(health) + " HP"
 
 @export var ground_path: NodePath
 var ground: Node2D
@@ -11,12 +16,22 @@ var ground: Node2D
 ## Manually measured, since the sprite texture is not cropped and the
 ## bottom has a little transparent border.
 const feet_y_offset := 128.0
+## Manually measured
+const front_x_offset := 115.0
 
 var tween: Tween
 var jumping := false
 
+func got_hit() -> void:
+	health -= 1
+	$HealthLabel.text = health_to_str()
+	if health == 0:
+		Utils.game_over.emit()
+
 func _ready() -> void:
 	ground = get_node(ground_path)
+	Utils.hit_you.connect(got_hit)
+	$HealthLabel.text = health_to_str()
 	
 func _process(_delta: float) -> void:
 	if not jumping:

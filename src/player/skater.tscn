@@ -13,7 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://bpvuj7p2owfmk" path="res://assets/audio/sfx/skatosaurus_skateboardland_v5.wav" id="11_mgb6c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_liimr"]
-size = Vector2(938, 980.5)
+size = Vector2(718, 980.5)
 
 [node name="Skater" type="Area2D" unique_id=445206836]
 scale = Vector2(0.25, 0.25)
@@ -23,8 +23,7 @@ script = ExtResource("2_dqm51")
 texture = ExtResource("1_5i56v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2102296699]
-visible = false
-position = Vector2(-11, 21.75)
+position = Vector2(99, 21.75)
 shape = SubResource("RectangleShape2D_liimr")
 
 [node name="SkateSound" type="AudioStreamPlayer" parent="." unique_id=1921531883]
@@ -61,5 +60,13 @@ stream = ExtResource("10_8iwcx")
 
 [node name="LandSound5" type="AudioStreamPlayer" parent="." unique_id=1332795966]
 stream = ExtResource("11_mgb6c")
+
+[node name="HealthLabel" type="Label" parent="." unique_id=1341959860]
+offset_left = -48.0
+offset_top = -868.0
+offset_right = 408.0
+offset_bottom = -660.0
+theme_override_colors/font_color = Color(0.11372549, 0.21960784, 0.9490196, 1)
+theme_override_font_sizes/font_size = 128
 
 [connection signal="timeout" from="PushSoundTimer" to="." method="_on_push_sound_timer_timeout"]

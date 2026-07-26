@@ -30,3 +30,5 @@ class Interval:
 		return lo_check and hi_check
 
 signal start_game
+signal hit_you
+signal game_over
