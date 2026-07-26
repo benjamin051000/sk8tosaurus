@@ -28,3 +28,5 @@ class Interval:
 			hi_check = x < hi
 		
 		return lo_check and hi_check
+
+signal start_game

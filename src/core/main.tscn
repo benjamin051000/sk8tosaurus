@@ -1,6 +1,72 @@
 [gd_scene format=3 uid="uid://v15m72wtyc45"]
 
 [ext_resource type="Script" uid="uid://kjht5p0iuu85" path="res://src/core/main.gd" id="1_avv2o"]
+[ext_resource type="Script" uid="uid://uyxnbto3pugf" path="res://src/world/clouds.gd" id="2_2uitn"]
+[ext_resource type="Texture2D" uid="uid://c3htnuqv5htq2" path="res://assets/background/clouds/Cloud_00.png" id="2_q2b63"]
+[ext_resource type="Texture2D" uid="uid://bpmjclenpbgw7" path="res://assets/background/clouds/Cloud_02.png" id="3_nxx65"]
+[ext_resource type="Texture2D" uid="uid://c7l84ykbu6cg6" path="res://assets/background/clouds/Cloud_04.png" id="4_2uitn"]
+[ext_resource type="Texture2D" uid="uid://d080pcj7h8sa5" path="res://assets/background/clouds/Cloud_03.png" id="5_nlf45"]
+[ext_resource type="Texture2D" uid="uid://c6tc7utymrw7n" path="res://assets/background/Sky.png" id="6_2in8s"]
+[ext_resource type="PackedScene" uid="uid://ck7hxahm271hy" path="res://src/ui/main_menu.tscn" id="7_nxx65"]
 
 [node name="Game" type="Node2D" unique_id=904023656]
 script = ExtResource("1_avv2o")
+
+[node name="Back clouds" type="Parallax2D" parent="." unique_id=1509650396]
+z_index = -2
+repeat_size = Vector2(1920, 0)
+autoscroll = Vector2(-300, 0)
+script = ExtResource("2_2uitn")
+
+[node name="Sprite2D" type="Sprite2D" parent="Back clouds" unique_id=45511199]
+position = Vector2(1691, 132)
+scale = Vector2(0.21630087, 0.22164948)
+texture = ExtResource("2_q2b63")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Back clouds" unique_id=1188116959]
+position = Vector2(415, 174)
+scale = Vector2(0.2617392, 0.27374303)
+texture = ExtResource("3_nxx65")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Back clouds" unique_id=1686227474]
+position = Vector2(1065.875, 534.25)
+scale = Vector2(0.1410798, 0.12991269)
+texture = ExtResource("4_2uitn")
+
+[node name="Front Clouds" type="Parallax2D" parent="." unique_id=1829842340]
+z_index = -1
+repeat_size = Vector2(1920, 0)
+autoscroll = Vector2(-600, 0)
+script = ExtResource("2_2uitn")
+
+[node name="Sprite2D" type="Sprite2D" parent="Front Clouds" unique_id=305935986]
+position = Vector2(1455, 222)
+scale = Vector2(0.45141062, 0.378866)
+texture = ExtResource("2_q2b63")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Front Clouds" unique_id=1397827404]
+position = Vector2(246.00002, 279)
+scale = Vector2(0.43305418, 0.37380534)
+texture = ExtResource("5_nlf45")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Front Clouds" unique_id=2105356958]
+position = Vector2(1072, 560)
+scale = Vector2(0.30152577, 0.3094978)
+texture = ExtResource("4_2uitn")
+
+[node name="Sky2" type="Sprite2D" parent="." unique_id=1967592943]
+z_index = -3
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_2in8s")
+centered = false
+
+[node name="MainMenu" parent="." unique_id=282117982 instance=ExtResource("7_nxx65")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 335.0
+offset_top = 245.0
+offset_right = 1422.0
+offset_bottom = 798.0
+grow_horizontal = 1
+grow_vertical = 1
