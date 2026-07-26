@@ -108,3 +108,4 @@ stream = ExtResource("11_7o0du")
 
 [node name="RoarSound" type="AudioStreamPlayer" parent="." unique_id=992457969]
 stream = ExtResource("12_7561f")
+volume_db = -1.0
