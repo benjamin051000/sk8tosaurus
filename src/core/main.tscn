@@ -95,5 +95,8 @@ z_index = 3
 points = PackedVector2Array(1412, 750, 1412, 780)
 
 [node name="Line2D4" type="Line2D" parent="BeatMarkers" unique_id=347339202]
+visible = false
 z_index = 3
 points = PackedVector2Array(1862, 750, 1862, 780)
+
+[node name="Obstacles" type="Node2D" parent="." unique_id=1725035130]
