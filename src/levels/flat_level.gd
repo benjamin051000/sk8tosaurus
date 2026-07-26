@@ -32,6 +32,11 @@ func _ready() -> void:
 	assert(a.texture.get_size() == b.texture.get_size())
 	sprite_width = a.texture.get_width() * a.scale.x
 	assert(is_equal_approx(screen_width, sprite_width))
+	
+	var tweena := create_tween()
+	tweena.tween_property(a, "position:y", 300, .75)
+	var tweenb := create_tween()
+	tweenb.tween_property(b, "position:y", 300, .75)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

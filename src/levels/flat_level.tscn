@@ -13,7 +13,7 @@ point_count = 21
 script = ExtResource("1_skqju")
 
 [node name="GroundA" type="Sprite2D" parent="." unique_id=906395677]
-position = Vector2(0, 300)
+position = Vector2(0, 700)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_w440s")
 centered = false
@@ -22,7 +22,7 @@ centered = false
 curve = SubResource("Curve2D_qayko")
 
 [node name="GroundB" type="Sprite2D" parent="." unique_id=475952142]
-position = Vector2(1920, 300)
+position = Vector2(1920, 700)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_w440s")
 centered = false
