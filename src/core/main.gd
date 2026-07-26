@@ -2,10 +2,13 @@ extends Node2D
 
 @onready var main_menu: CenterContainer = $MainMenu
 
-var level_scene = preload("res://src/levels/flat_level.tscn")
+var level_scene := preload("res://src/levels/flat_level.tscn")
 var level = level_scene.instantiate()
-var skater_scene = preload("res://src/player/skater.tscn")
+var skater_scene := preload("res://src/player/skater.tscn")
 var skater = skater_scene.instantiate()
+
+var meteor_scene := preload("res://src/world/meteor.tscn")
+var meteor := meteor_scene.instantiate()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,6 +16,9 @@ func _ready() -> void:
 	Utils.game_over.connect(game_over)
 
 func start() -> void:
+	add_child(meteor)
+	#await get_tree().create_timer(1).timeout
+	
 	add_child(level)
 
 	skater.ground_path = level.get_path()

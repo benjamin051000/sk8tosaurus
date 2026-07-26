@@ -15,7 +15,7 @@ var ground: Node2D
 
 ## Manually measured, since the sprite texture is not cropped and the
 ## bottom has a little transparent border.
-const feet_y_offset := 128.0
+const feet_y_offset := 160.0
 ## Manually measured
 const front_x_offset := 115.0
 
@@ -32,6 +32,7 @@ func _ready() -> void:
 	ground = get_node(ground_path)
 	Utils.hit_you.connect(got_hit)
 	$HealthLabel.text = health_to_str()
+	$Skateboard.play()
 	
 func _process(_delta: float) -> void:
 	if not jumping:

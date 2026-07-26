@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://bod72i1nshjft"]
+
+[ext_resource type="Texture2D" uid="uid://drj43gsec5a0d" path="res://assets/background/meteor/Meteor_near_1.png" id="1_7kqoh"]
+[ext_resource type="Script" uid="uid://cd14bi54mcoxd" path="res://src/world/meteor.gd" id="1_wusbq"]
+[ext_resource type="Texture2D" uid="uid://br8owfttx0xb5" path="res://assets/background/meteor/Meteor_near_0.png" id="2_wusbq"]
+[ext_resource type="Texture2D" uid="uid://krxrrvo6jdn5" path="res://assets/background/meteor/Meteor_mid_2.png" id="3_u4no8"]
+[ext_resource type="Texture2D" uid="uid://dlbmg3a0m1ypl" path="res://assets/background/meteor/Meteor_mid_1.png" id="4_da2sg"]
+[ext_resource type="Texture2D" uid="uid://c5bpybaqj3pnw" path="res://assets/background/meteor/Meteor_mid_0.png" id="5_rjeeb"]
+[ext_resource type="Texture2D" uid="uid://r3y3hpjgsol6" path="res://assets/background/meteor/Meteor_far_2.png" id="6_dm7qi"]
+[ext_resource type="Texture2D" uid="uid://on0ngkt5fx1v" path="res://assets/background/meteor/Meteor_far_1.png" id="7_t4pif"]
+[ext_resource type="Texture2D" uid="uid://86csjijjhpwc" path="res://assets/background/meteor/Meteor_far_0.png" id="8_niglq"]
+[ext_resource type="Texture2D" uid="uid://btutcy0f3ppbb" path="res://assets/background/meteor/Meteor_near_2.png" id="9_fsr8j"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_liimr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_niglq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_dm7qi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_t4pif")
+}],
+"loop": 1,
+"name": &"far",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_u4no8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_da2sg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_rjeeb")
+}],
+"loop": 1,
+"name": &"mid",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_fsr8j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_7kqoh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_wusbq")
+}],
+"loop": 1,
+"name": &"near",
+"speed": 5.0
+}]
+
+[node name="Meteor" type="Node2D" unique_id=1862723698]
+scale = Vector2(1e-05, 1e-05)
+script = ExtResource("1_wusbq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1861594603]
+sprite_frames = SubResource("SpriteFrames_liimr")
+animation = &"far"
+centered = false
