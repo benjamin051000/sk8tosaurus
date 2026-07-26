@@ -79,3 +79,21 @@ stream = ExtResource("9_nlf45")
 [node name="AmbientSounds" type="AudioStreamPlayer" parent="." unique_id=490175940]
 stream = ExtResource("10_2in8s")
 autoplay = true
+
+[node name="BeatMarkers" type="Node2D" parent="." unique_id=1869311654]
+
+[node name="Line2D" type="Line2D" parent="BeatMarkers" unique_id=2053956314]
+z_index = 3
+points = PackedVector2Array(512, 750, 512, 780)
+
+[node name="Line2D2" type="Line2D" parent="BeatMarkers" unique_id=1723909245]
+z_index = 3
+points = PackedVector2Array(962, 750, 962, 780)
+
+[node name="Line2D3" type="Line2D" parent="BeatMarkers" unique_id=359295565]
+z_index = 3
+points = PackedVector2Array(1412, 750, 1412, 780)
+
+[node name="Line2D4" type="Line2D" parent="BeatMarkers" unique_id=347339202]
+z_index = 3
+points = PackedVector2Array(1862, 750, 1862, 780)
