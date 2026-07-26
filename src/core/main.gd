@@ -23,6 +23,7 @@ func start() -> void:
 
 func game_over() -> void:
 	print("game over")
+	$LoseSound.play(1.75)
 
 func spawn_obstacles() -> void:
 	var obstacle_scene := preload("res://src/obstacles/obstacle.tscn")
@@ -39,5 +40,9 @@ func spawn_obstacles() -> void:
 		#main_menu.queue_free()
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventKey and event.keycode == KEY_ESCAPE:
-		get_tree().quit()
+	if event is InputEventKey:
+		if event.keycode == KEY_ESCAPE:
+			get_tree().quit()
+		elif event.keycode == KEY_R:
+			$RoarSound.play()
+	

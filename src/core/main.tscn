@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://ck7hxahm271hy" path="res://src/ui/main_menu.tscn" id="7_nxx65"]
 [ext_resource type="AudioStream" uid="uid://bra5hkrpb0dva" path="res://assets/audio/music/Sk8tosaurus.wav" id="9_nlf45"]
 [ext_resource type="AudioStream" uid="uid://cwo7ijkj7r43m" path="res://assets/audio/music/Sk8tosoundscape.wav" id="10_2in8s"]
+[ext_resource type="AudioStream" uid="uid://b3ey5bnh3lygg" path="res://assets/audio/sfx/skatosaurus_sfx_lose.wav" id="11_7o0du"]
+[ext_resource type="AudioStream" uid="uid://b4fwayjqxbsh1" path="res://assets/audio/sfx/skatosaurus_sfx_win.wav" id="12_7561f"]
 
 [node name="Game" type="Node2D" unique_id=904023656]
 script = ExtResource("1_avv2o")
@@ -100,3 +102,9 @@ z_index = 3
 points = PackedVector2Array(1862, 750, 1862, 780)
 
 [node name="Obstacles" type="Node2D" parent="." unique_id=1725035130]
+
+[node name="LoseSound" type="AudioStreamPlayer" parent="." unique_id=1373178008]
+stream = ExtResource("11_7o0du")
+
+[node name="RoarSound" type="AudioStreamPlayer" parent="." unique_id=992457969]
+stream = ExtResource("12_7561f")
