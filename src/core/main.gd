@@ -7,8 +7,17 @@ func _ready() -> void:
 	Utils.start_game.connect(start)
 
 func start() -> void:
-	var level = preload("res://src/levels/flat_level.tscn")
-	add_child(level.instantiate())
+	var level_scene = preload("res://src/levels/flat_level.tscn")
+	var level = level_scene.instantiate()
+	add_child(level)
+	var skater_scene = preload("res://src/player/skater.tscn")
+	var skater = skater_scene.instantiate()
+	skater.ground_path = level.get_path()
+	skater.position = Vector2(397.0, 1080)
+	add_child(skater)
+	$Music.play()
+	# TODO start shooting obstacles?
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta: float) -> void:

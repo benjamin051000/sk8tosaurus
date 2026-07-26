@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://d080pcj7h8sa5" path="res://assets/background/clouds/Cloud_03.png" id="5_nlf45"]
 [ext_resource type="Texture2D" uid="uid://c6tc7utymrw7n" path="res://assets/background/Sky.png" id="6_2in8s"]
 [ext_resource type="PackedScene" uid="uid://ck7hxahm271hy" path="res://src/ui/main_menu.tscn" id="7_nxx65"]
+[ext_resource type="AudioStream" uid="uid://bra5hkrpb0dva" path="res://assets/audio/music/Sk8tosaurus.wav" id="9_nlf45"]
+[ext_resource type="AudioStream" uid="uid://cwo7ijkj7r43m" path="res://assets/audio/music/Sk8tosoundscape.wav" id="10_2in8s"]
 
 [node name="Game" type="Node2D" unique_id=904023656]
 script = ExtResource("1_avv2o")
@@ -70,3 +72,10 @@ offset_right = 1422.0
 offset_bottom = 798.0
 grow_horizontal = 1
 grow_vertical = 1
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=493758124]
+stream = ExtResource("9_nlf45")
+
+[node name="AmbientSounds" type="AudioStreamPlayer" parent="." unique_id=490175940]
+stream = ExtResource("10_2in8s")
+autoplay = true

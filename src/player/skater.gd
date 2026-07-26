@@ -52,6 +52,10 @@ func jump() -> void:
 
 
 func _physics_process(_delta: float) -> void:
+	# HACK: Don't jump if we just started emerging from the ground on new game.
+	if position.y > 900:
+		return
+		
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		jump()
 
