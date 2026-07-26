@@ -23,6 +23,7 @@ script = ExtResource("2_dqm51")
 texture = ExtResource("1_5i56v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2102296699]
+visible = false
 position = Vector2(99, 21.75)
 shape = SubResource("RectangleShape2D_liimr")
 
