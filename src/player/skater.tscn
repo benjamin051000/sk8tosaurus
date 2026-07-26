@@ -69,18 +69,23 @@ volume_db = -10.0
 
 [node name="LandSound1" type="AudioStreamPlayer" parent="." unique_id=850654792]
 stream = ExtResource("7_4bmer")
+volume_db = -1.5
 
 [node name="LandSound2" type="AudioStreamPlayer" parent="." unique_id=1424362931]
 stream = ExtResource("8_bfuli")
+volume_db = -1.5
 
 [node name="LandSound3" type="AudioStreamPlayer" parent="." unique_id=552220684]
 stream = ExtResource("9_sryvi")
+volume_db = -2.5
 
 [node name="LandSound4" type="AudioStreamPlayer" parent="." unique_id=1111009179]
 stream = ExtResource("10_8iwcx")
+volume_db = -2.3
 
 [node name="LandSound5" type="AudioStreamPlayer" parent="." unique_id=1332795966]
 stream = ExtResource("11_mgb6c")
+volume_db = -1.5
 
 [node name="HealthLabel" type="Label" parent="." unique_id=1341959860]
 offset_left = -48.0
