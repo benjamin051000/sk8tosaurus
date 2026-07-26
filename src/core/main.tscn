@@ -18,6 +18,7 @@
 [ext_resource type="AudioStream" uid="uid://b3ey5bnh3lygg" path="res://assets/audio/sfx/skatosaurus_sfx_lose.wav" id="11_7o0du"]
 [ext_resource type="Texture2D" uid="uid://depaek5maqplx" path="res://assets/background/mountains/Background_3_4.png" id="11_72j70"]
 [ext_resource type="AudioStream" uid="uid://b4fwayjqxbsh1" path="res://assets/audio/sfx/skatosaurus_sfx_win.wav" id="12_7561f"]
+[ext_resource type="Script" uid="uid://bbq066nwpbfb6" path="res://src/world/beat_markers.gd" id="17_pf42m"]
 [ext_resource type="Texture2D" uid="uid://df4w7ekviuxh2" path="res://assets/background/Background_1_base.png" id="18_i7mjs"]
 
 [node name="Game" type="Node2D" unique_id=904023656]
@@ -109,6 +110,8 @@ stream = ExtResource("10_2in8s")
 autoplay = true
 
 [node name="BeatMarkers" type="Node2D" parent="." unique_id=1869311654]
+modulate = Color(1, 1, 1, 0)
+script = ExtResource("17_pf42m")
 
 [node name="Line2D" type="Line2D" parent="BeatMarkers" unique_id=2053956314]
 z_index = 3
