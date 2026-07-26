@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var main_menu: CenterContainer = $MainMenu
+@onready var main_menu: Node2D = $MainMenu
 
 var level_scene := preload("res://src/levels/flat_level.tscn")
 var level = level_scene.instantiate()
